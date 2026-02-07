@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Consulta de Encomendas{% endblock %}
+
+{% block content %}
+<h2>📋 Consulta de Encomendas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Destinatário</th>
+            <th>Apartamento</th>
+            <th>Bloco</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in encomendas %}
+        <tr>
+            <td>{{ e[0] }}</td>
+            <td>{{ e[1] }}</td>
+            <td>{{ e[2] }}</td>
+            <td>{{ e[3] }}</td>
+            <td>
+                {% if e[9] == 'Pendente' %}
+                    <span class="status pendente">Pendente</span>
+                {% elif e[9] == 'Entregue' %}
+                    <span class="status entregue">Entregue</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('detalhes', id_encomenda=e[0]) }}" class="btn btn-ver">Ver</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('index') }}" class="btn btn-voltar">⬅ Voltar</a>
+
+<style>
+    h2 { text-align: center; margin-bottom: 20px; color: #333; }
+    .table { width: 100%; border-collapse: collapse; }
+    .table th, .table td { padding: 10px; text-align: center; border-bottom: 1px solid #ccc; }
+    .status.pendente { color: #d9534f; font-weight: bold; }
+    .status.entregue { color: #5cb85c; font-weight: bold; }
+    .btn-ver {
+        background-color: #0275d8;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .btn-ver:hover { background-color: #025aa5; }
+    .btn-voltar {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #6c757d;
+        color: white;
+        padding: 7px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .btn-voltar:hover { background-color: #5a6268; }
+</style>
+{% endblock %}

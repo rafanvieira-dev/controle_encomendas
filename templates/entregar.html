@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Entregar Encomenda{% endblock %}
+
+{% block content %}
+<h2>📤 Entregar Encomenda</h2>
+
+{% if pendentes %}
+    <form method="POST">
+        <label for="id_encomenda">Selecione a Encomenda Pendente:</label>
+        <select name="id_encomenda" id="id_encomenda" required>
+            {% for e in pendentes %}
+                <option value="{{ e[0] }}">ID {{ e[0] }} - {{ e[1] }} (Apt {{ e[2] }})</option>
+            {% endfor %}
+        </select>
+
+        <div style="margin-top:15px;">
+            <label for="retirado_por">Nome de quem retirou:</label>
+            <input type="text" name="retirado_por" id="retirado_por" required>
+        </div>
+
+        <div style="margin-top:15px;">
+            <label for="documento_retirada">Documento de quem retirou (CPF/RG):</label>
+            <input type="text" name="documento_retirada" id="documento_retirada" required>
+        </div>
+
+        <button type="submit" class="btn btn-entregar">✅ Confirmar Entrega</button>
+    </form>
+{% else %}
+    <p>Não há encomendas pendentes para entrega.</p>
+{% endif %}
+
+<a href="{{ url_for('index') }}" class="btn btn-voltar">⬅ Voltar</a>
+
+<style>
+    h2 { text-align: center; margin-bottom: 20px; color: #333; }
+    form { max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 10px; }
+    label { font-weight: bold; margin-bottom: 5px; }
+    input, select { padding: 8px; border-radius: 5px; border: 1px solid #ccc; width: 100%; }
+    .btn-entregar {
+        margin-top: 15px;
+        background-color: #5cb85c;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-entregar:hover { background-color: #449d44; }
+    .btn-voltar {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #6c757d;
+        color: white;
+        padding: 7px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .btn-voltar:hover { background-color: #5a6268; }
+</style>
+{% endblock %}

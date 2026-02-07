@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Detalhes da Encomenda{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Detalhes da Encomenda ID {{ encomenda[0] }}</h2>
+    <p><strong>Destinatário:</strong> {{ encomenda[1] }}</p>
+    <p><strong>Apartamento:</strong> {{ encomenda[2] }}</p>
+    <p><strong>Bloco:</strong> {{ encomenda[3] }}</p>
+    <p><strong>Transportadora:</strong> {{ encomenda[4] }}</p>
+    <p><strong>Código de Rastreio:</strong> {{ encomenda[5] }}</p>
+    <p><strong>Funcionário Recebeu:</strong> {{ encomenda[6] }}</p>
+    <p><strong>Documento Recebedor:</strong> {{ encomenda[7] }}</p>
+    <p><strong>Data de Recebimento:</strong> {{ encomenda[12] }}</p>
+    <p><strong>Status:</strong> {{ encomenda[9] }}</p>
+    <p><strong>Retirado Por:</strong> {{ encomenda[10] }}</p>
+    <p><strong>Documento de Retirada:</strong> {{ encomenda[11] }}</p>
+    <p><strong>Data de Retirada:</strong> {{ encomenda[13] }}</p>
+    <p><strong>Foto:</strong></p>
+    {% if encomenda[8] %}
+        <img src="{{ url_for('static', filename=encomenda[8]) }}" alt="Foto da Encomenda" style="max-width:300px; border-radius:10px; margin-top:10px;">
+    {% else %}
+        <p>Sem foto</p>
+    {% endif %}
+</div>
+<a href="{{ url_for('consultar') }}" class="btn">⬅ Voltar</a>
+{% endblock %}

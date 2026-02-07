@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Página Inicial{% endblock %}
+{% block content %}
+<div class="card">
+    <h2>📦 Encomendas Pendentes: {{ pendentes }}</h2>
+    <h2>✅ Encomendas Entregues: {{ entregues }}</h2>
+    <h2>📅 Total Registrado: {{ total }}</h2>
+</div>
+
+<div class="menu">
+    <a href="{{ url_for('cadastrar') }}" class="btn">📥 Cadastrar Nova Encomenda</a>
+    <a href="{{ url_for('entregar') }}" class="btn">📤 Realizar Entrega</a>
+    <a href="{{ url_for('consultar') }}" class="btn">📊 Consultar Encomendas</a>
+</div>
+{% endblock %}

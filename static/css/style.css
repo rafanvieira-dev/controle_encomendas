@@ -1,0 +1,50 @@
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body {
+    background-color:#f0f2f6; color:#333; display:flex; flex-direction:column; align-items:center; padding:20px;
+}
+
+.container { width:100%; max-width:1000px; display:flex; flex-direction:column; align-items:center; }
+
+.card {
+    background-color:#ffffff; border-radius:12px; padding:25px 30px; margin:15px 0; width:100%;
+    box-shadow:0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card h2 { color:#1f77b4; margin-bottom:15px; text-align:center; }
+
+.btn {
+    display:inline-block; text-decoration:none; background-color:#1f77b4; color:#fff; padding:12px 20px;
+    border-radius:10px; margin:8px 0; text-align:center; font-size:16px; font-weight:bold; transition:0.3s;
+}
+
+.btn:hover { background-color:#155d8b; }
+
+.menu { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px; }
+
+form { display:flex; flex-direction:column; gap:12px; }
+
+input[type="text"], input[type="file"], select {
+    padding:10px; border-radius:8px; border:1px solid #ccc; font-size:15px; width:100%;
+}
+
+input[type="text"]:focus, select:focus { border-color:#1f77b4; outline:none; }
+
+table { width:100%; border-collapse:collapse; margin-top:15px; }
+
+thead { background-color:#1f77b4; color:#fff; }
+
+th, td { padding:10px; text-align:center; border:1px solid #ddd; font-size:14px; }
+
+tbody tr:nth-child(even) { background-color:#f2f2f2; }
+
+h1 { color:#1f77b4; margin-bottom:20px; text-align:center; }
+
+h2 { margin-bottom:10px; }
+
+@media (max-width:768px){
+    .card { padding:15px 20px; }
+    .btn { width:100%; font-size:14px; }
+    table, th, td { font-size:12px; }
+}

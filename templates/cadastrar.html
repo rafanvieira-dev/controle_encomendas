@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Cadastrar Encomenda{% endblock %}
+{% block content %}
+<div class="card">
+    <form action="{{ url_for('cadastrar') }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="destinatario" placeholder="Nome do Destinatário" required>
+        <input type="text" name="apartamento" placeholder="Apartamento" required>
+        <input type="text" name="bloco" placeholder="Bloco" required>
+        <input type="text" name="transportadora" placeholder="Transportadora / Empresa">
+        <input type="text" name="rastreio" placeholder="Código de Rastreio">
+        <input type="text" name="funcionario" placeholder="Funcionário que Recebeu">
+        <input type="file" name="foto">
+        <input type="text" name="documento" placeholder="Documento do Recebedor (CPF/RG)" required>
+        <button type="submit" class="btn">💾 Salvar Encomenda</button>
+    </form>
+</div>
+<a href="{{ url_for('index') }}" class="btn">⬅ Voltar</a>
+{% endblock %}
